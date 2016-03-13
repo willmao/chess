@@ -667,12 +667,12 @@ Chess.prototype.alpha_beta = function(color, depth, alpha, beta, offset) {
         var move_info = Chess.decode_move(move);
         var dest = move_info[1];
         var killed_chessman = this.square[dest];
-        if (killed_chessman > 0 && ((killed_chessman & 0x70) >> 4) == 0) {
+        if (killed_chessman > 0 && ((killed_chessman & 0x70) >> 4) == color) {
             if (this.max_depth == depth) {
                 this.current_best_move = move;
             }
 
-            return 1000000;
+            return 1000000*(this.search_color == color?-1:1);
         }
         this.apply_move(move);
         if (!this.check_king(color)) {
