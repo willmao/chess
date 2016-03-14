@@ -1,3 +1,44 @@
 body{
     margin: 0px;
 }
+
+#copyright{
+    margin-left: 30px;
+    margin-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#game_status{
+    height: 60px;
+    width: 800px;
+}
+
+#btn_container{
+    display: inline-block;
+    margin-left: 60px;
+}
+
+#btn_container > button{
+    font-size: 20px;
+    font-family: monospace;
+    padding:8px 20px;
+    border: none;
+    background-color: cadetblue;
+    opacity: 0.9;
+    border-radius: 3px;
+}
+
+#btn_container > button:hover{
+    cursor: pointer;
+    opacity: 1.0;
+}
+
+#btn_container > button:last-child{
+    margin-left: 20px;
+}
+
+#status{
+    display: inline-block;
+    margin-left: 30px;
+    font-size: 25px;
+}

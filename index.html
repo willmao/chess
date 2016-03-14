@@ -1,84 +1,105 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
-    <title>Chinese Chess</title>
-    <link rel="stylesheet" type="text/css" href="css/chess.css"/>
-  </head>
-  <body id='body'>
+    <title>中国象棋</title>
+    <link rel="stylesheet" type="text/css" href="css/chess.css" />
+</head>
+
+<body id='body'>
     <div id="container">
-      <svg xmlns="http://www.w3.org/2000/svg" height="800" width="700" class="chess-svg" id="chess_svg">
-        <style type="text/css">
-            *.unselectable {
-                -moz-user-select: -moz-none;
-                -khtml-user-select: none;
-                -webkit-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-            }
-
-            g>line {
-                stroke: #8d4919;
-                stroke-width: 1px;
-                shape-rendering: optimizeSpeed;
-            }
-            g>text{
-                font-family: Microsoft YaHei;
-                font-size: 45px;
-                font-weight: bold;
-            }
-
-            g>svg {
-                cursor: pointer;
-                width: 60px;
-                height: 60px;
-            }
-            g>svg.black>text {
-                fill: black;
-            }
-            g>svg.red>text {
-                fill: #880000;
-            }
-            g> svg > circle {
-                stroke-width: 3px;
-                
-                fill: #e7c292;
-                filter: url(#shadow);
-            }
-            g> svg > text {
-                font-family: LiSu;
-                font-size: 40px;
-                font-weight: bold;
-            }
-            g>svg.red.active > circle {
-                stroke: red;
-                stroke-width: 3px;
-            }
-           g> svg.black.active > circle {
-                stroke: black;
-                stroke-width: 3px;
-            }
-        </style>
-        <defs>
-          <filter id="shadow">
-            <feOffset in="SourceGraphic" result="offOut" dx="0" dy="3"></feOffset>
-            <feColorMatrix result="matrixOut" in="offOut" type="matrix" values="0.2 0   0   0 0
+        <div id="game_container">
+            <svg xmlns="http://www.w3.org/2000/svg" height="780" width="700" class="chess-svg" id="chess_svg">
+                <style type="text/css">
+                    *.unselectable {
+                        -moz-user-select: -moz-none;
+                        -khtml-user-select: none;
+                        -webkit-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                    }
+                    
+                    g>line {
+                        stroke: #8d4919;
+                        stroke-width: 1px;
+                        shape-rendering: optimizeSpeed;
+                    }
+                    
+                    g>text {
+                        font-family: Microsoft YaHei;
+                        font-size: 45px;
+                        font-weight: bold;
+                    }
+                    
+                    g>svg {
+                        cursor: pointer;
+                        width: 60px;
+                        height: 60px;
+                    }
+                    
+                    g>svg.black>text {
+                        fill: black;
+                    }
+                    
+                    g>svg.red>text {
+                        fill: #880000;
+                    }
+                    
+                    g> svg > circle {
+                        stroke-width: 3px;
+                        fill: #e7c292;
+                        filter: url(#shadow);
+                    }
+                    
+                    g> svg > text {
+                        font-family: LiSu;
+                        font-size: 40px;
+                        font-weight: bold;
+                    }
+                    
+                    g>svg.red.active > circle {
+                        stroke: red;
+                        stroke-width: 3px;
+                    }
+                    
+                    g> svg.black.active > circle {
+                        stroke: black;
+                        stroke-width: 3px;
+                    }
+                </style>
+                <defs>
+                    <filter id="shadow">
+                        <feOffset in="SourceGraphic" result="offOut" dx="0" dy="3"></feOffset>
+                        <feColorMatrix result="matrixOut" in="offOut" type="matrix" values="0.2 0   0   0 0
                                 0   0.2 0   0 0
                                 0   0   0.2 0 0
-                                0   0   0   1 0"/>
+                                0   0   0   1 0" />
 
-            <feGaussianBlur in="matrixOut" result="blurOut" stdDeviation="3"></feGaussianBlur>
-            <feBlend in="SourceGraphic" in2="blurOut" mode="normal"></feBlend>
-          </filter>
-          <radialGradient id="radialGradient">
-            <stop stop-color="#f9c76e" offset="0%"></stop>
-            <stop stop-color="#f9c760" offset="70%"></stop>
-            <stop stop-color="#f9c750" offset="90%"></stop>
-            <stop stop-color="#f9c760" offset="100%"></stop>
-          </radialGradient>
-        </defs>
-      </svg>
-      <script src="script/chess.js" type="text/javascript" charset="utf-8"></script>
+                        <feGaussianBlur in="matrixOut" result="blurOut" stdDeviation="3"></feGaussianBlur>
+                        <feBlend in="SourceGraphic" in2="blurOut" mode="normal"></feBlend>
+                    </filter>
+                    <radialGradient id="radialGradient">
+                        <stop stop-color="#f9c76e" offset="0%"></stop>
+                        <stop stop-color="#f9c760" offset="70%"></stop>
+                        <stop stop-color="#f9c750" offset="90%"></stop>
+                        <stop stop-color="#f9c760" offset="100%"></stop>
+                    </radialGradient>
+                </defs>
+            </svg>
+        </div>
+        <div id="game_status">
+            <div id="btn_container">
+                <button id="btn_back" type="button">悔棋</button>
+                <button id="btn_restart" type="button">重新开始</button>
+            </div>
+            <div id="status"></div>
+        </div>
+        <script src="script/chess.js" type="text/javascript" charset="utf-8"></script>
     </div>
-  </body>
+    <div id="copyright">
+        Copyright: ©Will.Mao    Inspired by xqbase.com & Nick.Liu
+    </div>
+</body>
+
 </html>
